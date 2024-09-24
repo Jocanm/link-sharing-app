@@ -5,9 +5,7 @@ interface Props {
 
 const HomePage = ({}: Props) => {
   return (
-    <div>
-      Home Page
-    </div>
+    <div></div>
   );
 };
 
