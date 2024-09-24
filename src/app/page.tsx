@@ -1,9 +1,14 @@
-import React from 'react'
 
-const HomePage = () => {
-  return (
-    <div>HomePage</div>
-  )
+interface Props {
+  searchParams: Record<string, string>;
 }
 
-export default HomePage
+const HomePage = ({}: Props) => {
+  return (
+    <div>
+      Home Page
+    </div>
+  );
+};
+
+export default HomePage;
