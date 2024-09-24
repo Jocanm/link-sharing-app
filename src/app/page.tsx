@@ -1,9 +1,20 @@
-import React from 'react'
+import { TodoItem } from "@/components/TodoItem";
+import { Suspense } from "react";
 
-const HomePage = () => {
-  return (
-    <div>HomePage</div>
-  )
+interface Props {
+  searchParams: Record<string, string>;
 }
 
-export default HomePage
+const HomePage = ({ searchParams }: Props) => {
+  const id = parseInt(searchParams.id ?? "1", 10);
+
+  return (
+    <div>
+      <Suspense fallback={<div>Loading...</div>}>
+        <TodoItem id={id} />
+      </Suspense>
+    </div>
+  );
+};
+
+export default HomePage;
