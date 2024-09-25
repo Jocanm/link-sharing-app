@@ -4,8 +4,10 @@ import { cva, type VariantProps } from "cva";
 const buttonStyles = cva("rounded-lg py-3 w-56 font-bold transition-colors", {
   variants: {
     variant: {
-      primary: "bg-purple text-white hover:bg-purple-light disabled:bg-purple disabled:opacity-25",
-      secondary: "text-purple border-purple border",
+      primary:
+        "bg-purple text-white hover:bg-purple-light disabled:bg-purple disabled:opacity-25",
+      secondary:
+        "bg-white text-purple border-purple border hover:bg-purple-lightest disabled:bg-white disabled:opacity-25",
     },
   },
   defaultVariants: {
@@ -27,10 +29,7 @@ export const Button: React.FC<ButtonProps> = ({
   className,
   ...props
 }) => {
-  const buttonClassName = cn(
-    buttonStyles({ variant }),
-    className
-  );
+  const buttonClassName = cn(buttonStyles({ variant }), className);
 
   return (
     <button {...props} className={buttonClassName}>
