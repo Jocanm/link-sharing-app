@@ -1,19 +1,19 @@
-import React from "react";
-import { Button } from "../../../components/ui/Button";
+import Logo from "@/assets/logo.png";
+import Image from "next/image";
+import Link from "next/link";
 import { AiOutlineMail } from "react-icons/ai";
 import { GiPadlock } from "react-icons/gi";
-import { PiLinkSimpleFill } from "react-icons/pi";
-import Link from "next/link";
+import { Button } from "../../../components/ui/Button";
 
 const LoginPage = () => {
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-gray-50">
+    <div className="flex flex-col items-center justify-center h-full">
       <div className="flex items-center justify-center mb-8">
-        <PiLinkSimpleFill className="text-5xl rounded-2xl mr-3 text-blue-700" />
-        <h1 className="text-4xl font-bold text-center">DevLinks</h1>
+        <Image src={Logo} alt="DevLinks" />
+        <h2 className="text-4xl font-bold text-center">DevLinks</h2>
       </div>
 
-      <div className="bg-white shadow-md rounded-lg px-8 py-6 w-full max-w-md">
+      <div className="bg-white rounded-lg px-8 py-6 w-full max-w-md">
         <h1 className="text-3xl font-bold mb-2">Login</h1>
         <p className="text-gray mb-6 text-base leading-6">
           Add your details below to get back into the app
@@ -27,7 +27,7 @@ const LoginPage = () => {
             <AiOutlineMail className="absolute left-3 top-11 text-gray" />
             <input
               type="email"
-              placeholder="       e.g. alex@email.com"
+              placeholder="e.g. alex@email.com"
               className="w-full px-4 py-4 border border-borders rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
           </div>
@@ -39,7 +39,7 @@ const LoginPage = () => {
             <GiPadlock className="absolute left-3 top-11 text-gray" />
             <input
               type="password"
-              placeholder="       Enter your password"
+              placeholder="Enter your password"
               className="w-full px-4 py-4 border border-borders rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
           </div>
