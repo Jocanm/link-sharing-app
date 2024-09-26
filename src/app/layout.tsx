@@ -17,10 +17,7 @@ export default function RootLayout({
   return (
     <html lang="es">
       <body className={intrumentSans.className}>
-        <div>
-          <div>navbar</div>
-          <div>{children}</div>
-        </div>
+        <div className="h-screen bg-gray-light">{children}</div>
       </body>
     </html>
   );
