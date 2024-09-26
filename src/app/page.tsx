@@ -5,7 +5,7 @@ interface Props {
 const HomePage = ({}: Props) => {
   return (
     <div className="flex gap-2 flex-col justify-center items-center">
-      hola mundo
+      Hola Mundo
     </div>
   );
 };
