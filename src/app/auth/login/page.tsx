@@ -26,10 +26,11 @@ const LoginPage = () => {
 
         <form className="space-y-6">
           <div className="relative flex flex-col gap-1">
-            <Text variant="body-s" as="label" className="block text-gray-dark">
-              Email address
-            </Text>
-            <AiOutlineMail className="absolute left-3 top-[56px] -translate-y-1/2 text-gray" />
+            <label htmlFor="email" className="block text-gray-dark">
+              <Text variant="body-s">Email address</Text>
+            </label>
+
+            <AiOutlineMail className="absolute left-3 top-[53px] -translate-y-1/2 text-gray" />
             <input
               id="email"
               type="email"
@@ -39,9 +40,10 @@ const LoginPage = () => {
           </div>
 
           <div className="relative flex-col flex gap-1">
-            <Text variant="body-s" as="label" className="block text-gray-dark">
-              Password
-            </Text>
+            <label htmlFor="password" className="block text-gray-dark">
+              <Text variant="body-s">Password</Text>
+            </label>
+
             <GiPadlock className="absolute left-3 top-[54px] -translate-y-1/2 text-gray" />
             <input
               id="password"
