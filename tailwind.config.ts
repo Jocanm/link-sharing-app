@@ -23,22 +23,34 @@ const config: Config = {
         red: "#FF3939",
       },
       fontSize: {
-        'heading-m': ['2rem', {
-          lineHeight: '3rem',
-          fontWeight: '700'
-        }],
-        'heading-s': ['1rem', {
-          lineHeight: '1.5rem',
-          fontWeight: '600'
-        }],
-        'body-m': ['1rem', {
-          lineHeight: '1.5rem',
-          fontWeight: '400'
-        }],
-        'body-s': ['0.75rem', {
-          lineHeight: '1.125rem',
-          fontWeight: '400'
-        }],
+        "heading-m": [
+          "2rem",
+          {
+            lineHeight: "3rem",
+            fontWeight: "700",
+          },
+        ],
+        "heading-s": [
+          "1rem",
+          {
+            lineHeight: "1.5rem",
+            fontWeight: "600",
+          },
+        ],
+        "body-m": [
+          "1rem",
+          {
+            lineHeight: "1.5rem",
+            fontWeight: "400",
+          },
+        ],
+        "body-s": [
+          "0.75rem",
+          {
+            lineHeight: "1.125rem",
+            fontWeight: "400",
+          },
+        ],
       },
     },
   },
