@@ -15,12 +15,14 @@ type TabStylesVariants = VariantProps<typeof tabStyles>;
 export interface TabProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement>,
     TabStylesVariants {
-  icon?: ReactNode;
+  leftIcon?: ReactNode;
+  rightIcon?: ReactNode;
 }
 
 export const Tab: React.FC<TabProps> = ({
   active,
-  icon,
+  leftIcon,
+  rightIcon,
   className,
   children,
   ...props
@@ -29,7 +31,8 @@ export const Tab: React.FC<TabProps> = ({
 
   return (
     <button {...props} className={tabClassName}>
-      {icon}
+      {leftIcon}
+      {rightIcon}
       {children}
     </button>
   );
