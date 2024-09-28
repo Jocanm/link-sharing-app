@@ -2,7 +2,7 @@ import { cn } from "@/util/cn";
 import { cva, VariantProps } from "cva";
 import { ReactNode } from "react";
 
-const tabsStyles = cva("text-gray font-semibold hover:text-purple", {
+const tabStyles = cva("text-gray font-semibold hover:text-purple", {
   variants: {
     active: {
       true: "rounded-lg font-semibold py-2 px-2 w-26 bg-purple-light text-purple",
@@ -10,25 +10,25 @@ const tabsStyles = cva("text-gray font-semibold hover:text-purple", {
   },
 });
 
-type TabsStylesVariants = VariantProps<typeof tabsStyles>;
+type TabStylesVariants = VariantProps<typeof tabStyles>;
 
-export interface TabsProps
+export interface TabProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement>,
-    TabsStylesVariants {
+    TabStylesVariants {
   icon?: ReactNode;
 }
 
-export const Tabs: React.FC<TabsProps> = ({
+export const Tab: React.FC<TabProps> = ({
   active,
   icon,
   className,
   children,
   ...props
 }) => {
-  const tabsClassName = cn(tabsStyles({ active }), className);
+  const tabClassName = cn(tabStyles({ active }), className);
 
   return (
-    <button {...props} className={tabsClassName}>
+    <button {...props} className={tabClassName}>
       {icon}
       {children}
     </button>
