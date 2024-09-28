@@ -2,7 +2,7 @@ import { cn } from "@/util/cn";
 import { cva, VariantProps } from "cva";
 import React from "react";
 
-const textStyles = cva("", {
+const textStyles = cva("text-gray-dark", {
   variants: {
     variant: {
       "heading-m": "text-heading-m",

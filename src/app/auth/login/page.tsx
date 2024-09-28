@@ -26,9 +26,9 @@ const LoginPage = () => {
 
         <form className="space-y-6">
           <div className="relative flex flex-col gap-1">
-            <label htmlFor="email" className="block text-gray-dark">
-              <Text variant="body-s">Email address</Text>
-            </label>
+            <Text variant="body-s" as="label" htmlFor="email">
+              Email address
+            </Text>
 
             <AiOutlineMail className="absolute left-3 top-[53px] -translate-y-1/2 text-gray" />
             <input
@@ -40,9 +40,9 @@ const LoginPage = () => {
           </div>
 
           <div className="relative flex-col flex gap-1">
-            <label htmlFor="password" className="block text-gray-dark">
-              <Text variant="body-s">Password</Text>
-            </label>
+            <Text variant="body-s" as="label" htmlFor="password">
+              Password
+            </Text>
 
             <GiPadlock className="absolute left-3 top-[54px] -translate-y-1/2 text-gray" />
             <input
