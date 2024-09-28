@@ -4,30 +4,33 @@ import Link from "next/link";
 import { AiOutlineMail } from "react-icons/ai";
 import { GiPadlock } from "react-icons/gi";
 import { Button } from "../../../components/ui/Button";
+import { Text } from "@/components/ui/Text";
 
 const LoginPage = () => {
   return (
     <div className="flex flex-col h-full px-10 gap-10 items-center justify-center">
       <div className="flex items-center gap-3 mr-auto md:mr-0">
         <Image src={Logo} alt="DevLinks" />
-        <h2 className="text-4xl font-bold text-center">devlinks</h2>
+        <Text variant="heading-m" className="text-center">
+          devlinks
+        </Text>
       </div>
 
       <div className="md:bg-white rounded-lg md:p-10 w-full md:max-w-md">
-        <h1 className="text-3xl font-bold mb-2">Login</h1>
-        <p className="text-gray mb-6 text-base leading-6">
+        <Text variant="heading-m" className="mb-2">
+          Login
+        </Text>
+        <Text variant="body-m" className="text-gray mb-6">
           Add your details below to get back into the app
-        </p>
+        </Text>
 
         <form className="space-y-6">
           <div className="relative flex flex-col gap-1">
-            <label
-              htmlFor="email"
-              className="block text-gray-dark text-sm font-normal"
-            >
+            <Text variant="body-s" as="label" htmlFor="email">
               Email address
-            </label>
-            <AiOutlineMail className="absolute left-3 top-[54px] -translate-y-1/2 text-gray" />
+            </Text>
+
+            <AiOutlineMail className="absolute left-3 top-[53px] -translate-y-1/2 text-gray" />
             <input
               id="email"
               type="email"
@@ -37,12 +40,10 @@ const LoginPage = () => {
           </div>
 
           <div className="relative flex-col flex gap-1">
-            <label
-              htmlFor="password"
-              className="block text-gray-dark text-sm font-medium"
-            >
+            <Text variant="body-s" as="label" htmlFor="password">
               Password
-            </label>
+            </Text>
+
             <GiPadlock className="absolute left-3 top-[54px] -translate-y-1/2 text-gray" />
             <input
               id="password"
@@ -55,12 +56,15 @@ const LoginPage = () => {
             <Button className="w-full font-semibold text-white py-2 rounded-lg">
               Login
             </Button>
-            <p className="flex md:flex-row md:gap-1 flex-col gap-px items-center justify-center text-base font-normal text-gray">
+            <Text
+              variant="body-m"
+              className="flex md:flex-row md:gap-1 flex-col gap-px items-center justify-center text-gray"
+            >
               {"Don't have an account?"}
               <Link href="/" className="text-purple">
-                Create account
+                <Text variant="body-m">Create account</Text>
               </Link>
-            </p>
+            </Text>
           </div>
         </form>
       </div>
