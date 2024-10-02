@@ -1,10 +1,11 @@
 import Logo from "@/assets/logo.png";
+import { Text } from "@/components/ui/Text";
+import { Routes } from "@/constants/routes";
 import Image from "next/image";
 import Link from "next/link";
 import { AiOutlineMail } from "react-icons/ai";
 import { GiPadlock } from "react-icons/gi";
 import { Button } from "../../../components/ui/Button";
-import { Text } from "@/components/ui/Text";
 
 const LoginPage = () => {
   return (
@@ -61,7 +62,7 @@ const LoginPage = () => {
               className="flex md:flex-row md:gap-1 flex-col gap-px items-center justify-center text-gray"
             >
               {"Don't have an account?"}
-              <Link href="/auth/register" className="text-purple">
+              <Link href={Routes.REGISTER} className="text-purple">
                 <Text variant="body-m">Create account</Text>
               </Link>
             </Text>
