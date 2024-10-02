@@ -1,32 +1,28 @@
 "use client";
 
 import Logo from "@/assets/logo.png";
+import { Button } from "@/components/ui/Button";
 import { Text } from "@/components/ui/Text";
 import { Routes } from "@/constants/routes";
+import { LoginFormData, useLoginForm } from "@/modules/auth/hooks/login/useLoginForm";
 import Image from "next/image";
 import Link from "next/link";
-import { useForm } from "react-hook-form";
 import { AiOutlineMail } from "react-icons/ai";
 import { GiPadlock } from "react-icons/gi";
-import { Button } from "../../../components/ui/Button";
 
-interface LoginFormData {
-  email: string;
-  password: string;
-}
 
 const LoginPage = () => {
   const {
+    reset,
     register,
     handleSubmit,
-    reset,
     formState: { errors },
-  } = useForm<LoginFormData>();
+  } = useLoginForm();
 
   const onSubmit = (data: LoginFormData) => {
     console.log(data);
     reset();
-  };
+  }
 
   return (
     <div className="flex flex-col h-full px-7 md:px-10 gap-10 items-center justify-center">
@@ -53,13 +49,7 @@ const LoginPage = () => {
 
             <AiOutlineMail className="absolute left-3 top-[52px] -translate-y-1/2 text-gray" />
             <input
-              {...register("email", {
-                pattern: {
-                  value: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
-                  message: "El formato del correo electrónico no es válido",
-                },
-                required: "Email es requerido",
-              })}
+              {...register("email")}
               id="email"
               placeholder="e.g. alex@email.com"
               className="w-full pl-10 py-4 border border-borders rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
@@ -78,13 +68,7 @@ const LoginPage = () => {
 
             <GiPadlock className="absolute left-3 top-[52px] -translate-y-1/2 text-gray" />
             <input
-              {...register("password", {
-                required: "contraseña es requerida",
-                minLength: {
-                  value: 8,
-                  message: "la contraseña debe tener 8 caracteres",
-                },
-              })}
+              {...register("password")}
               id="password"
               type="password"
               placeholder="Enter your password"
