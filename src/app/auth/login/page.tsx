@@ -8,7 +8,7 @@ import { Text } from "@/components/ui/Text";
 
 const LoginPage = () => {
   return (
-    <div className="flex flex-col py-8 px-10 gap-10 items-center justify-center">
+    <div className="flex flex-col h-full px-7 md:px-10 gap-10 items-center justify-center">
       <div className="flex items-center gap-3 mr-auto md:mr-0">
         <Image src={Logo} alt="DevLinks" />
         <Text variant="heading-m" className="text-center">
