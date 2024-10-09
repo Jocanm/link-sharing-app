@@ -24,7 +24,7 @@ export interface TextProps extends TextStylesVariants {
 }
 
 export const Text: React.FC<TextProps> = ({
-  as: Component = "p",
+  as: Component = "span",
   variant,
   ...props
 }) => {

@@ -35,10 +35,10 @@ const RegisterPage = () => {
       </div>
 
       <div className="md:bg-white rounded-lg md:p-10 w-full md:max-w-md">
-        <Text variant="heading-m" className="mb-2">
+        <Text variant="heading-m" className="mb-2" as="h1">
           Create account
         </Text>
-        <Text variant="body-m" className="text-gray mb-6">
+        <Text variant="body-m" className="text-gray mb-6 block">
           Lets get you started sharing your links!
         </Text>
 

@@ -11,6 +11,7 @@ import {
 } from "@/modules/auth/hooks/login/useLoginForm";
 import Image from "next/image";
 import Link from "next/link";
+import { FieldErrors } from "react-hook-form";
 import { AiOutlineMail } from "react-icons/ai";
 import { GiPadlock } from "react-icons/gi";
 
@@ -27,7 +28,9 @@ const LoginPage = () => {
     reset();
   };
 
-  console.log(errors.email);
+  const onErrors = (errors: FieldErrors<LoginFormData>) => {
+    console.log(errors);
+  };
 
   return (
     <div className="flex flex-col h-full px-7 md:px-10 gap-10 items-center justify-center">
@@ -39,21 +42,24 @@ const LoginPage = () => {
       </div>
 
       <div className="md:bg-white rounded-lg md:p-10 w-full md:max-w-md">
-        <Text variant="heading-m" className="mb-2">
+        <Text variant="heading-m" className="mb-2" as="h1">
           Login
         </Text>
-        <Text variant="body-m" className="text-gray mb-6">
+        <Text variant="body-m" className="text-gray mb-6 block">
           Add your details below to get back into the app
         </Text>
 
-        <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+        <form
+          className="space-y-6"
+          onSubmit={handleSubmit(onSubmit, onErrors)}
+        >
           <div className="relative flex flex-col gap-1">
             <Input
-              {...register("email")}
               label="Email address"
               placeholder="e.g. alex@email.com"
               Icon={<AiOutlineMail />}
               errorValidation={errors.email?.message}
+              {...register("email")}
             />
             {/* <Text variant="body-s" as="label" htmlFor="email">
               Email address
@@ -93,7 +99,10 @@ const LoginPage = () => {
             )}
           </div>
           <div className="flex flex-col gap-5">
-            <Button className="w-full font-semibold text-white py-2 rounded-lg">
+            <Button
+              type="submit"
+              className="w-full font-semibold text-white py-2 rounded-lg"
+            >
               Login
             </Button>
             <Text

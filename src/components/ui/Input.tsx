@@ -1,6 +1,6 @@
 import { cn } from "@/util/cn";
 import { cva, type VariantProps } from "cva";
-import { ReactNode } from "react";
+import React, { ReactNode } from "react";
 import { Text } from "./Text";
 
 const inputStyles = cva(
@@ -8,7 +8,7 @@ const inputStyles = cva(
   {
     variants: {
       hasError: {
-        true: "focus:ring-red placeholder-red",
+        true: "focus:ring-0 placeholder-red border-2 border-red text-red",
       },
     },
   }
@@ -24,15 +24,13 @@ export interface InputProps
   errorValidation?: string;
 }
 
-export const Input: React.FC<InputProps> = ({
-  hasError,
-  className,
-  label,
-  Icon,
-  name,
-  errorValidation,
-  ...props
-}) => {
+export const Input: React.FC<InputProps> = React.forwardRef<
+  HTMLInputElement,
+  InputProps
+>(function Input(
+  { hasError, className, label, Icon, name, errorValidation, ...props },
+  ref
+) {
   const inputClassName = cn(
     inputStyles({ hasError: !!errorValidation || hasError }),
     className
@@ -47,7 +45,13 @@ export const Input: React.FC<InputProps> = ({
       )}
       <div className="relative flex items-center">
         <span className="absolute left-4 text-gray">{Icon}</span>
-        <input id={name} {...props} className={inputClassName} name={name} />
+        <input
+          id={name}
+          {...props}
+          className={inputClassName}
+          name={name}
+          ref={ref}
+        />
       </div>
       {errorValidation && (
         <Text variant="body-s" className="text-red text-xs">
@@ -56,4 +60,4 @@ export const Input: React.FC<InputProps> = ({
       )}
     </div>
   );
-};
+});
