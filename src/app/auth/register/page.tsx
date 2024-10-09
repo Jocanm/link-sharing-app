@@ -58,7 +58,7 @@ const RegisterPage = () => {
             <Input
               label="Password"
               type="password"
-              placeholder="e.g. alex@email.com"
+              placeholder="At least 8 characters"
               Icon={<GiPadlock />}
               errorValidation={errors.password?.message}
               {...register("password")}
@@ -69,7 +69,7 @@ const RegisterPage = () => {
               label="Confirm Password"
               id="confirmPassword"
               type="password"
-              placeholder="e.g. alex@email.com"
+              placeholder="At least 8 characters"
               Icon={<GiPadlock />}
               errorValidation={errors.confirmPassword?.message}
               {...register("confirmPassword")}

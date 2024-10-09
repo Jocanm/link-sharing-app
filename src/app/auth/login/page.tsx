@@ -64,7 +64,7 @@ const LoginPage = () => {
             <Input
               label="Password"
               type="password"
-              placeholder="e.g. alex@email.com"
+              placeholder="Enter your password"
               Icon={<GiPadlock />}
               errorValidation={errors.password?.message}
               {...register("password")}
