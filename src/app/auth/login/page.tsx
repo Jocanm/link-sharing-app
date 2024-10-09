@@ -2,14 +2,17 @@
 
 import Logo from "@/assets/logo.png";
 import { Button } from "@/components/ui/Button";
+import { Input } from "@/components/ui/Input";
 import { Text } from "@/components/ui/Text";
 import { Routes } from "@/constants/routes";
-import { LoginFormData, useLoginForm } from "@/modules/auth/hooks/login/useLoginForm";
+import {
+  LoginFormData,
+  useLoginForm,
+} from "@/modules/auth/hooks/login/useLoginForm";
 import Image from "next/image";
 import Link from "next/link";
 import { AiOutlineMail } from "react-icons/ai";
 import { GiPadlock } from "react-icons/gi";
-
 
 const LoginPage = () => {
   const {
@@ -22,7 +25,9 @@ const LoginPage = () => {
   const onSubmit = (data: LoginFormData) => {
     console.log(data);
     reset();
-  }
+  };
+
+  console.log(errors.email);
 
   return (
     <div className="flex flex-col h-full px-7 md:px-10 gap-10 items-center justify-center">
@@ -43,7 +48,14 @@ const LoginPage = () => {
 
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
           <div className="relative flex flex-col gap-1">
-            <Text variant="body-s" as="label" htmlFor="email">
+            <Input
+              {...register("email")}
+              label="Email address"
+              placeholder="e.g. alex@email.com"
+              Icon={<AiOutlineMail />}
+              errorValidation={errors.email?.message}
+            />
+            {/* <Text variant="body-s" as="label" htmlFor="email">
               Email address
             </Text>
 
@@ -58,7 +70,7 @@ const LoginPage = () => {
               <Text variant="body-s" className="text-red">
                 {errors.email.message}
               </Text>
-            )}
+            )} */}
           </div>
 
           <div className="relative flex-col flex gap-1">
