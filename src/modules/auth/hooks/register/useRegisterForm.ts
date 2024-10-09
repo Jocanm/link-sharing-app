@@ -4,13 +4,9 @@ import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 
 const registerFormSchema = yup.object({
-  email: yup
-    .string()
-    .required("El correo es requerido")
-    .matches(regex.email, "El correo no es válido"),
+  email: yup.string().matches(regex.email, "El correo no es válido"),
   password: yup
     .string()
-    .required("La contraseña es requerida")
     .min(8, "La contraseña debe tener al menos 8 caracteres"),
   confirmPassword: yup
     .string()

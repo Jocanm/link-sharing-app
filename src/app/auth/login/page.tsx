@@ -2,14 +2,18 @@
 
 import Logo from "@/assets/logo.png";
 import { Button } from "@/components/ui/Button";
+import { Input } from "@/components/ui/Input";
 import { Text } from "@/components/ui/Text";
 import { Routes } from "@/constants/routes";
-import { LoginFormData, useLoginForm } from "@/modules/auth/hooks/login/useLoginForm";
+import {
+  LoginFormData,
+  useLoginForm,
+} from "@/modules/auth/hooks/login/useLoginForm";
 import Image from "next/image";
 import Link from "next/link";
+import { FieldErrors } from "react-hook-form";
 import { AiOutlineMail } from "react-icons/ai";
 import { GiPadlock } from "react-icons/gi";
-
 
 const LoginPage = () => {
   const {
@@ -22,7 +26,11 @@ const LoginPage = () => {
   const onSubmit = (data: LoginFormData) => {
     console.log(data);
     reset();
-  }
+  };
+
+  const onErrors = (errors: FieldErrors<LoginFormData>) => {
+    console.log(errors);
+  };
 
   return (
     <div className="flex flex-col h-full px-7 md:px-10 gap-10 items-center justify-center">
@@ -34,54 +42,39 @@ const LoginPage = () => {
       </div>
 
       <div className="md:bg-white rounded-lg md:p-10 w-full md:max-w-md">
-        <Text variant="heading-m" className="mb-2">
+        <Text variant="heading-m" className="mb-2" as="h1">
           Login
         </Text>
-        <Text variant="body-m" className="text-gray mb-6">
+        <Text variant="body-m" className="text-gray mb-6 block">
           Add your details below to get back into the app
         </Text>
 
-        <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+        <form className="space-y-6" onSubmit={handleSubmit(onSubmit, onErrors)}>
           <div className="relative flex flex-col gap-1">
-            <Text variant="body-s" as="label" htmlFor="email">
-              Email address
-            </Text>
-
-            <AiOutlineMail className="absolute left-3 top-[52px] -translate-y-1/2 text-gray" />
-            <input
-              {...register("email")}
-              id="email"
+            <Input
+              label="Email address"
               placeholder="e.g. alex@email.com"
-              className="w-full pl-10 py-4 border border-borders rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+              Icon={<AiOutlineMail />}
+              errorValidation={errors.email?.message}
+              {...register("email")}
             />
-            {errors.email && (
-              <Text variant="body-s" className="text-red">
-                {errors.email.message}
-              </Text>
-            )}
           </div>
 
           <div className="relative flex-col flex gap-1">
-            <Text variant="body-s" as="label" htmlFor="password">
-              Password
-            </Text>
-
-            <GiPadlock className="absolute left-3 top-[52px] -translate-y-1/2 text-gray" />
-            <input
-              {...register("password")}
-              id="password"
+            <Input
+              label="Password"
               type="password"
               placeholder="Enter your password"
-              className="w-full pl-10 py-4 border border-borders rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+              Icon={<GiPadlock />}
+              errorValidation={errors.password?.message}
+              {...register("password")}
             />
-            {errors.password && (
-              <Text variant="body-s" className="text-red">
-                {errors.password.message}
-              </Text>
-            )}
           </div>
           <div className="flex flex-col gap-5">
-            <Button className="w-full font-semibold text-white py-2 rounded-lg">
+            <Button
+              type="submit"
+              className="w-full font-semibold text-white py-2 rounded-lg"
+            >
               Login
             </Button>
             <Text

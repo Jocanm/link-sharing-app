@@ -2,6 +2,7 @@
 
 import Logo from "@/assets/logo.png";
 import { Button } from "@/components/ui/Button";
+import { Input } from "@/components/ui/Input";
 import { Text } from "@/components/ui/Text";
 import { Routes } from "@/constants/routes";
 import {
@@ -35,72 +36,46 @@ const RegisterPage = () => {
       </div>
 
       <div className="md:bg-white rounded-lg md:p-10 w-full md:max-w-md">
-        <Text variant="heading-m" className="mb-2">
+        <Text variant="heading-m" className="mb-2" as="h1">
           Create account
         </Text>
-        <Text variant="body-m" className="text-gray mb-6">
+        <Text variant="body-m" className="text-gray mb-6 block">
           Lets get you started sharing your links!
         </Text>
 
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
           <div className="relative flex flex-col gap-1">
-            <Text variant="body-s" as="label" htmlFor="email">
-              Email address
-            </Text>
-
-            <AiOutlineMail className="absolute left-3 top-[52px] -translate-y-1/2 text-gray" />
-            <input
-              {...register("email")}
-              id="email"
+            <Input
+              label="Email address"
               placeholder="e.g. alex@email.com"
-              className="w-full pl-10 py-4 border border-borders rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+              Icon={<AiOutlineMail />}
+              errorValidation={errors.email?.message}
+              {...register("email")}
             />
-            {errors.email && (
-              <Text variant="body-s" className="text-red">
-                {errors.email.message}
-              </Text>
-            )}
           </div>
 
           <div className="relative flex-col flex gap-1">
-            <Text variant="body-s" as="label" htmlFor="password">
-              Create Password
-            </Text>
-
-            <GiPadlock className="absolute left-3 top-[51px] -translate-y-1/2 text-gray" />
-            <input
-              {...register("password")}
-              id="password"
+            <Input
+              label="Password"
               type="password"
               placeholder="At least 8 characters"
-              className="w-full pl-10 py-4 border border-borders rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+              Icon={<GiPadlock />}
+              errorValidation={errors.password?.message}
+              {...register("password")}
             />
-            {errors.password && (
-              <Text variant="body-s" className="text-red">
-                {errors.password.message}
-              </Text>
-            )}
           </div>
           <div className="relative flex-col flex gap-1">
-            <Text variant="body-s" as="label" htmlFor="password">
-              Confirm Password
-            </Text>
-
-            <GiPadlock className="absolute left-3 top-[51px] -translate-y-1/2 text-gray" />
-            <input
-              {...register("confirmPassword")}
+            <Input
+              label="Confirm Password"
               id="confirmPassword"
               type="password"
               placeholder="At least 8 characters"
-              className="w-full pl-10 py-4 border border-borders rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+              Icon={<GiPadlock />}
+              errorValidation={errors.confirmPassword?.message}
+              {...register("confirmPassword")}
             />
-            {errors.confirmPassword && (
-              <Text variant="body-s" className="text-red">
-                {errors.confirmPassword.message}
-              </Text>
-            )}
           </div>
-          <Text variant="body-s" className="text-gray">
+          <Text variant="body-s" className="text-gray text-xs">
             Password must contain at least 8 characters
           </Text>
           <div className="flex flex-col gap-5">
