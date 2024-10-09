@@ -49,10 +49,7 @@ const LoginPage = () => {
           Add your details below to get back into the app
         </Text>
 
-        <form
-          className="space-y-6"
-          onSubmit={handleSubmit(onSubmit, onErrors)}
-        >
+        <form className="space-y-6" onSubmit={handleSubmit(onSubmit, onErrors)}>
           <div className="relative flex flex-col gap-1">
             <Input
               label="Email address"
@@ -61,42 +58,17 @@ const LoginPage = () => {
               errorValidation={errors.email?.message}
               {...register("email")}
             />
-            {/* <Text variant="body-s" as="label" htmlFor="email">
-              Email address
-            </Text>
-
-            <AiOutlineMail className="absolute left-3 top-[52px] -translate-y-1/2 text-gray" />
-            <input
-              {...register("email")}
-              id="email"
-              placeholder="e.g. alex@email.com"
-              className="w-full pl-10 py-4 border border-borders rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-            />
-            {errors.email && (
-              <Text variant="body-s" className="text-red">
-                {errors.email.message}
-              </Text>
-            )} */}
           </div>
 
           <div className="relative flex-col flex gap-1">
-            <Text variant="body-s" as="label" htmlFor="password">
-              Password
-            </Text>
-
-            <GiPadlock className="absolute left-3 top-[52px] -translate-y-1/2 text-gray" />
-            <input
-              {...register("password")}
-              id="password"
+            <Input
+              label="Password"
               type="password"
-              placeholder="Enter your password"
-              className="w-full pl-10 py-4 border border-borders rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+              placeholder="e.g. alex@email.com"
+              Icon={<GiPadlock />}
+              errorValidation={errors.password?.message}
+              {...register("password")}
             />
-            {errors.password && (
-              <Text variant="body-s" className="text-red">
-                {errors.password.message}
-              </Text>
-            )}
           </div>
           <div className="flex flex-col gap-5">
             <Button
