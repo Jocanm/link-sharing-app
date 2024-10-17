@@ -2,13 +2,16 @@ import { cn } from "@/util/cn";
 import { cva, VariantProps } from "cva";
 import { ReactNode } from "react";
 
-const tabStyles = cva("text-gray font-semibold hover:text-purple", {
-  variants: {
-    active: {
-      true: "rounded-lg font-semibold py-2 px-2 w-26 bg-purple-light text-purple",
+const tabStyles = cva(
+  "text-gray hover:text-purple rounded-lg font-semibold py-3 px-7",
+  {
+    variants: {
+      active: {
+        true: "rounded-lg font-semibold bg-purple-lightest text-purple",
+      },
     },
-  },
-});
+  }
+);
 
 type TabStylesVariants = VariantProps<typeof tabStyles>;
 
