@@ -1,8 +1,5 @@
 import type { Metadata } from "next";
-import { Instrument_Sans } from "next/font/google";
 import Navbar from "@/components/ui/navbar/Navbar";
-
-const intrumentSans = Instrument_Sans({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -15,17 +12,13 @@ export default function ConfigurationLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="es">
-      <body className={intrumentSans.className}>
-        <div>
-          <main className="h-full w-full bg-gray-light">
-            <div className="pt-4">
-              <Navbar />
-            </div>
-            {children}
-          </main>
+    <div>
+      <main className="h-full w-full bg-gray-light">
+        <div className="pt-4">
+          <Navbar />
         </div>
-      </body>
-    </html>
+        {children}
+      </main>
+    </div>
   );
 }

@@ -25,7 +25,7 @@ const Navbar = () => {
           </Text>
         </div>
 
-        <div className="flex items-center  gap-8">
+        <div className="flex items-center  gap-6">
           <Link href="/configuration/links">
             <Tab
               leftIcon={<FaLink />}
