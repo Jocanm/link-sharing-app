@@ -31,7 +31,7 @@ const Navbar = () => {
             <Tab
               leftIcon={<FaLink />}
               className="flex items-center gap-2"
-              active={isActive("/configuration/links")}
+              active={isActive(Routes.LINKS)}
             >
               <span className="hidden md:block">Links</span>
             </Tab>
@@ -40,7 +40,7 @@ const Navbar = () => {
             <Tab
               leftIcon={<FaRegCircleUser />}
               className="flex items-center gap-2"
-              active={isActive("/configuration/profile")}
+              active={isActive(Routes.PROFILE)}
             >
               <span className="hidden md:block">Profile details</span>
             </Tab>
