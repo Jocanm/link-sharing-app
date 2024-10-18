@@ -10,6 +10,7 @@ import { FaLink, FaRegCircleUser } from "react-icons/fa6";
 import { LiaEyeSolid } from "react-icons/lia";
 import { Text } from "../Text";
 import { usePathname } from "next/navigation";
+import { Routes } from "@/constants/routes";
 
 const Navbar = () => {
   const pathname = usePathname();
@@ -26,7 +27,7 @@ const Navbar = () => {
         </div>
 
         <div className="flex items-center  gap-6">
-          <Link href="/configuration/links">
+          <Link href={Routes.LINKS}>
             <Tab
               leftIcon={<FaLink />}
               className="flex items-center gap-2"
@@ -35,7 +36,7 @@ const Navbar = () => {
               <span className="hidden md:block">Links</span>
             </Tab>
           </Link>
-          <Link href="/configuration/profile">
+          <Link href={Routes.PROFILE}>
             <Tab
               leftIcon={<FaRegCircleUser />}
               className="flex items-center gap-2"
