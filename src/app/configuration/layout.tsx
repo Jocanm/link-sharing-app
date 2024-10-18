@@ -8,7 +8,7 @@ export default function ConfigurationLayout({
   return (
     <div>
       <main className="h-full w-full bg-gray-light">
-        <div className="pt-4">
+        <div className="md:pt-4">
           <Navbar />
         </div>
         {children}
