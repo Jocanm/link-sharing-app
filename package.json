@@ -10,11 +10,13 @@
     "prepare": "husky"
   },
   "dependencies": {
+    "@auth/prisma-adapter": "^2.7.2",
     "@hookform/resolvers": "^3.9.0",
     "@prisma/client": "^5.21.1",
     "clsx": "^2.1.1",
     "cva": "npm:class-variance-authority",
     "next": "14.2.13",
+    "next-auth": "^5.0.0-beta.25",
     "react": "^18",
     "react-dom": "^18",
     "react-hook-form": "^7.53.0",
